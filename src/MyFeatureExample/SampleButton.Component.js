@@ -2,14 +2,14 @@ import React from 'react'
 import { View, Button, StyleSheet } from 'react-native'
 
 
-const SubmitButtonComponent = props => {
+const SampleButtonComponent = props => {
     const { sendMessage } = props
     const { outerWrapper, } = styles
     return(
         <View
             style={outerWrapper}>
             <Button
-                title={'My custom button'}
+                title={'Press me to call sendMessage callback'}
                 onPress={sendMessage}
                 />
         </View>
@@ -22,4 +22,4 @@ styles = StyleSheet.create({
     },
 })
 
-export default SubmitButtonComponent
+export default SampleButtonComponent

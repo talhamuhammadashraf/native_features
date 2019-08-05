@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import MessageComponent from './Message.Component'
-import SubmitButtonComponent from './SubmitButton.Component'
+import SampleButtonComponent from './SampleButton.Component'
 import FormComponent from './Form.Component'
-
+import IconComponent from './Icon.Component'
+import MyPicComponent from './MyPic.Component'
 // This is where the "component" design begins!
 
 const MyFeatureExampleComponent = props => {
@@ -13,6 +14,8 @@ const MyFeatureExampleComponent = props => {
         innerViewWrapperB,
         innerViewWrapperC,
         innerViewWrapperD,
+        innerViewWrapperE,
+        innerViewWrapperF,
     } = styles
     return(
         <View
@@ -24,16 +27,25 @@ const MyFeatureExampleComponent = props => {
             </View>
             <View
                 style={innerViewWrapperB}>
-                <Text>Render a custom component:</Text>
+                <Text>Render a custom component</Text>
                 <MessageComponent {...props}/>
             </View>
             <View
                 style={innerViewWrapperC}>
-                <Text>Render a custom component with a placeholder callback:</Text>
-                <SubmitButtonComponent {...props}/>
+                <Text>Render a custom component:</Text>
+                <IconComponent {...props}/>
+            </View>
+            <View style={innerViewWrapperD}>
+                <Text>Render a custom image:</Text>
+                <MyPicComponent {...props}/>
             </View>
             <View
-                style={innerViewWrapperD}>
+                style={innerViewWrapperE}>
+                <Text>Render a custom component with a placeholder callback:</Text>
+                <SampleButtonComponent {...props}/>
+            </View>
+            <View
+                style={innerViewWrapperF}>
                 <Text>Render a form component with a placeholder callback that submits the values</Text>
                 <FormComponent {...props}/>
             </View>
@@ -51,25 +63,37 @@ styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'purple',
+        backgroundColor: 'red',
     },
     innerViewWrapperB: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'green',
+        backgroundColor: 'orange',
     },
     innerViewWrapperC: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'blue',
+        backgroundColor: 'yellow',
     },
     innerViewWrapperD: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red',
+        backgroundColor: 'green',
+    },
+    innerViewWrapperE: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'blue',
+    },
+    innerViewWrapperF: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'purple',
     },
 })
 

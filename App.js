@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MyFeatureExampleContainer from './src/MyFeatureExample/MyFeatureExample.Container'
-
 // Entry point to the simulator.
 // Change this to point to the new feature when you are ready
 // to start

@@ -5,10 +5,10 @@ let NATIVE_VERSION = props => {
     const {icon, brand, color, size} = props
     let ROUNDED = SIZE_CONVERSION(size)
     return (
-        <Icon 
+        <Icon
             icon={brand ? ['fab', brand] : icon}
             color={color}
-            size={ROUNDED} 
+            size={ROUNDED}
         />
     )
 }

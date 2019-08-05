@@ -15,7 +15,7 @@ class MyFeatureExampleContainer extends Component {
         return (
             <MyFeatureExampleComposition
                 message={'Hey this is an example placeholder for a message our dev team to plug into later'}
-                title={'Hey this is an example placeholder for a title our dev team to plug into later'}
+                title={'this is a sample value'}
                 sendMessage={()=> Alert.alert('Hey, this is a placeholder callback for our dev team to plug into later.')}
                 onSubmit={values=>Alert.alert(values.sampleinput)}
                 />

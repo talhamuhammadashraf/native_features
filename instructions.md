@@ -24,13 +24,13 @@ Getting started with Git + Expo
 ----------------------------------------------------------------
 Our design "guide":
 ----------------------------------------------------------------
-
-There is an example "MyFeatureExample" that shows how all of this gets implemented.
-
 The overall flow of how we render a component looks like this:
-App.js --> Feature.Container --> Feature.Composition --> Feature.Component (majority of your work will be here)
+App.js --> Feature.Container --> Feature.Composition --> Feature.Component (majority of your work will be here). There is an example "MyFeatureExample" that shows how all of this gets implemented.
 
-1. The highest level entry point to a feature should be the "container" (filename _____.Container.js). This is where we hardcode sample values and sample callbacks (i.e. ()=>console.log()) for the components and then they get passed down as props.
+0. Checkout a branch
+    git checkout -b myFeatureBranchName
+    git push origin myFeatureBranchName
+1. The highest level entry point to your feature should be the "container" (filename _____.Container.js). This is where we hardcode sample values and sample callbacks (i.e. ()=>console.log()) for the components and then they get passed down as props.
 2. There is a "composition" file where local state and lifecycle
 logic should be held (filename ____.Composition.js). This might not be needed in all cases, in which case just leave it and have it render the ____.Component component
 3. There is a "component" file that is a functional component (i.e. not a class, filename ___.Component.js). This is where
