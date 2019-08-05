@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import ProfileWidgetComponent from './ProfileWidget.Component'
-
-// This is a placeholder for where we store
-// "state" and lifecycle logic for the component.
-// The intent is that every component beneath
-// this component in the tree will be a "dumb" (function)
-// component, and that any "class" functionality needed down
-// the tree will be passed down from here as props
+import { View, Animated, Text, StyleSheet } from 'react-native'
 
 class ProfileWidgetComposition extends Component {
     constructor(props) {
