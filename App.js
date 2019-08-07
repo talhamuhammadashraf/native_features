@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MyFeatureExampleContainer from './src/MyFeatureExample/MyFeatureExample.Container'
-import ProfileWidgetContainer from './src/ProfileWidget/ProfileWidget.Container'
+import CommentsListContainer from './src/CommentsList/CommentsList.Container'
+import CommentsComposeEdit from './src/CommentsComposeEdit/CommentsComposeEdit.Container'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ProfileWidgetContainer/>
+      <CommentsListContainer/>
     </View>
   );
 }
