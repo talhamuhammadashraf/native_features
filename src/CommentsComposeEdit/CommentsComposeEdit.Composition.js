@@ -9,28 +9,32 @@ import CommentsComposeEditComponent from './CommentsComposeEdit.Component'
 // the tree will be passed down from here as props
 
 class CommentsComposeEditComposition extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props){
+        super(props)
         this.state = {
-            sampleKey: 'value',
+            thumbStatus: null
         }
     }
 
-    componentDidMount(){
-
+    updateThumbStatus(thumbStatus){
+        this.setState({thumbStatus: thumbStatus})
     }
 
-    componentDidUpdate(){
-
-    }
-    componentWillUnmount(){
-
+    onPressShowMore(index){
+        // Put rest of "show more" logic here,
+        // and then the this.props.onPressShowMore
+        // gets called after
+        this.props.onPressShowMore()
     }
 
     render() {
         return (
             <CommentsComposeEditComponent
                 {...this.props}
+                onPressThumbsUp={()=>this.updateThumbStatus('up')}
+                onPressThumbsDown={()=>this.updateThumbStatus('down')}
+                thumbStatus={this.state.thumbStatus}
+                onPressShowMore={this.onPressShowMore}
                 />
         )
     }

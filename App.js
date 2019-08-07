@@ -7,7 +7,7 @@ import CommentsComposeEdit from './src/CommentsComposeEdit/CommentsComposeEdit.C
 export default function App() {
   return (
     <View style={styles.container}>
-      <CommentsListContainer/>
+      <CommentsComposeEdit/>
     </View>
   );
 }
