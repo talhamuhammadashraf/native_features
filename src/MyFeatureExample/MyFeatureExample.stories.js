@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Alert, Text } from 'react-native'
 import { storiesOf } from '@storybook/react-native';
-import { authenticationForms as forms } from '../../duck/';
 import MyFeatureExampleComposition from './MyFeatureExample.Composition'
+
 const CenteredView = ({ children }) => (
     <View style={style}>
         {children}
@@ -25,6 +25,8 @@ export default storiesOf(
     'standard',
     () => (
         <MyFeatureExampleComposition
+            title={'My variable'}
+            message={'My message prop here'}
             initialValues={{
                 email: '',
                 password: '',
@@ -32,7 +34,7 @@ export default storiesOf(
             initialIsValid={false}
             isLoading={false}
             jwtErrorMessage={"Error: We coudn't find your account using that email and password."}
-            validate={forms.validateLogin}
+            validate={()=>({})}
             onSubmit={()=>Alert.alert('onSubmit')}
             goToSubscribeScreen={()=>Alert.alert('goToSubscribeScreen')}
             goToForgotPasswordScreen={()=>Alert.alert('goToForgotPasswordScreen')}

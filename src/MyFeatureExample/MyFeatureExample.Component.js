@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { ScrollView, View, Text, StyleSheet } from 'react-native'
 import MessageComponent from './Message.Component'
 import SampleButtonComponent from './SampleButton.Component'
 import FormComponent from './Form.Component'
@@ -23,7 +23,7 @@ const MyFeatureExampleComponent = props => {
             <View
                 style={innerViewWrapperA}>
                 <Text>Render a variable from props:</Text>
-                <Text>{props.title}</Text>
+                <Text style={{color: 'white'}}>{props.title}</Text>
             </View>
             <View
                 style={innerViewWrapperB}>
@@ -53,11 +53,10 @@ const MyFeatureExampleComponent = props => {
     )
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
     outerWrapper: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        margin: 20,
     },
     innerViewWrapperA: {
         flex: 1,

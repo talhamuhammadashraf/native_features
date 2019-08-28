@@ -21,10 +21,8 @@ const MessageComponent = props => {
 
 styles = StyleSheet.create({
     outerWrapper: {
-        flex: 1,
     },
     textStyle: {
-        flex: 1,
         color: 'white',
     }
 })
