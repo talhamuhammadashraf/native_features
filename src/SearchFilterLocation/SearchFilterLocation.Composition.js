@@ -118,4 +118,4 @@ class SearchFilterLocationComposition extends Component {
     }
 }
 
-export default FormikWrapper(SearchFilterLocation)
+export default FormikWrapper(SearchFilterLocationComposition)

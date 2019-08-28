@@ -123,4 +123,4 @@ class SearchFilterSponsorsComposition extends Component {
     }
 }
 
-export default FormikWrapper(SearchFilterSponsors)
+export default FormikWrapper(SearchFilterSponsorsComposition)
