@@ -5,18 +5,18 @@ import MyFeatureExampleContainer from './src/MyFeatureExample/MyFeatureExample.C
 import CommentsListContainer from './src/CommentsList/CommentsList.Container'
 import CommentsComposeEdit from './src/CommentsComposeEdit/CommentsComposeEdit.Container'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <MyFeatureExampleContainer/>
-    </View>
-  );
-}
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <MyFeatureExampleContainer/>
+//     </View>
+//   );
+// }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+// });
 
-// export default StoryBookUI
+export default StoryBookUI

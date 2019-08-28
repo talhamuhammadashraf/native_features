@@ -6,11 +6,13 @@
 
 function loadStories() {
   require('../src/MyFeatureExample/MyFeatureExample.stories');
+  require('../src/SearchFilterProviders/SearchFilterProviders.stories');
   
 }
 
 const stories = [
   '../src/MyFeatureExample/MyFeatureExample.stories',
+  '../src/SearchFilterProviders/SearchFilterProviders.stories',
   
 ];
 

@@ -19,7 +19,7 @@ const style = {
 
 
 export default storiesOf(
-    'MyFeature Example Screen',
+    'MyFeatureExample Screen',
     module
 ).add(
     'standard',
