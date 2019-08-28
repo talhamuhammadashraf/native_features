@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView, View, Text, StyleSheet } from 'react-native'
 // This is where the "component" design begins!
 
-const SearchFilterLocationComponent = props => {
+const ProviderScoreWidgetComponent = props => {
     const {
         outerWrapper,
 
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default SearchFilterLocationComponent
+export default ProviderScoreWidgetComponent

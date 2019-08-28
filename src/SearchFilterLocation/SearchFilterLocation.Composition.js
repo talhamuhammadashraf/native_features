@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
 import { FormikWrapper } from '../common/HOCs/FormikWrapper';
-import SearchFilterPlansSponsorsComponent from './SearchFilterPlansSponsors.Component'
+import SearchFilterLocationComponent from './SearchFilterLocation.Component'
 
 // This is a placeholder for where we store
 // "state" and lifecycle logic for the component.
@@ -10,7 +10,7 @@ import SearchFilterPlansSponsorsComponent from './SearchFilterPlansSponsors.Comp
 // component, and that any "class" functionality needed down
 // the tree will be passed down from here as props
 
-class SearchFilterLocation extends Component {
+class SearchFilterLocationComposition extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -91,7 +91,7 @@ class SearchFilterLocation extends Component {
 
         } = this
         return (
-            <SearchFilterPlansSponsorsComponent
+            <SearchFilterLocationComponent
                 {...this.props}
                 slideInIsDisplayed={slideInIsDisplayed}
                 filters_isOn={filters_isOn}

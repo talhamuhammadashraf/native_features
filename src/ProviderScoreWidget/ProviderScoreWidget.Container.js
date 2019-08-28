@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
-import SearchFilterSponsorsComposition from './SearchFilterSponsors.Composition'
+import ProviderScoreWidgetComposition from './ProviderScoreWidget.Composition'
 
 // IGNORE THIS FILE FOR NOW
 // The Container is where our dev team will eventually
@@ -11,13 +11,13 @@ import SearchFilterSponsorsComposition from './SearchFilterSponsors.Composition'
 // The Container is the highest level entry point for the set
 // of components (i.e. will be in the App.js)
 
-class SearchFilterSponsorsContainer extends Component {
+class ProviderScoreWidgetContainer extends Component {
     render() {
         return (
-            <SearchFilterSponsorsComposition
+            <ProviderScoreWidgetComposition
 
                 />
         )
     }
 }
-export default SearchFilterSponsorsContainer
+export default ProviderScoreWidgetContainer

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
-import SearchFilterLocation from './SearchFilterPlansSponsors.Composition'
+import SearchFilterLocationComposition from './SearchFilterLocation.Composition'
 
 // IGNORE THIS FILE FOR NOW
 // The Container is where our dev team will eventually
@@ -11,13 +11,13 @@ import SearchFilterLocation from './SearchFilterPlansSponsors.Composition'
 // The Container is the highest level entry point for the set
 // of components (i.e. will be in the App.js)
 
-class SearchFilterPlansSponsorsContainer extends Component {
+class SearchFilterLocationContainer extends Component {
     render() {
         return (
-            <SearchFilterLocation
+            <SearchFilterLocationComposition
 
                 />
         )
     }
 }
-export default SearchFilterPlansSponsorsContainer
+export default SearchFilterLocationContainer

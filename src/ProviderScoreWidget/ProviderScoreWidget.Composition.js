@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
 import { FormikWrapper } from '../common/HOCs/FormikWrapper';
-import SearchFilterSponsorsComponent from './SearchFilterSponsors.Component'
+import ProviderScoreWidgetComponent from './ProviderScoreWidget.Component'
 
 // This is a placeholder for where we store
 // "state" and lifecycle logic for the component.
@@ -10,7 +10,7 @@ import SearchFilterSponsorsComponent from './SearchFilterSponsors.Component'
 // component, and that any "class" functionality needed down
 // the tree will be passed down from here as props
 
-class SearchFilterSponsorsComposition extends Component {
+class ProviderScoreWidget extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,14 +18,13 @@ class SearchFilterSponsorsComposition extends Component {
             //Bar
             filters_isOn: false,
             type_isOn: false,
-            location_isOn: false,
             moreOptions_isOn: false,
             //Popup
             sortBy_Type_isOn: false,
             sortBy_Name_isOn: false,
-            type_Employer_isOn: false,
-            type_University_isOn: false,
-            location_ChooseAnother_isOn: false,
+            type_state_isOn: false,
+            type_zipcode_isOn: false,
+            type_name_isOn: false,
         }
     }
 
@@ -46,19 +45,17 @@ class SearchFilterSponsorsComposition extends Component {
     // Callbacks that gets invoked AFTER the menu slides up/in from the bottom
     onPressFilters = () => Alert.alert('onPressFilters')
     onPressType = () => Alert.alert('onPressType')
-    onPressLocation = () => Alert.alert('onPressLocation')
     onPressMoreOptions = () => {
         this.setState({slideInIsDisplayed: true})
         Alert.alert('onPressMoreOptions')
     }
 
-
     // Pop up menu
     onPressSortBy_Type = () => Alert.alert('onPressSortBy_Type')
     onPressSortBy_Name = () => Alert.alert('onPressSortBy_Name')
-    onPressType_Employer = () => Alert.alert('onPressType_Employer')
-    onPressType_University = () => Alert.alert('onPressType_University')
-    onPressLocation_ChooseAnother = () => Alert.alert('onPressLocation_ChooseAnother')
+    onPressType_State = () => Alert.alert('onPressType_State')
+    onPressType_Zipcode = () => Alert.alert('onPressType_Zipcode')
+    onPressType_Name = () => Alert.alert('onPressType_Name')
 
     // Callbacks that gets invoked AFTER the menu slides up/in is dismissed
     onPressReset = () => Alert.alert('onPressReset')
@@ -73,54 +70,52 @@ class SearchFilterSponsorsComposition extends Component {
             slideInIsDisplayed,
             filters_isOn,
             type_isOn,
-            location_isOn,
             moreOptions_isOn,
             sortBy_Type_isOn,
             sortBy_Name_isOn,
-            type_Employer_isOn,
-            type_University_isOn,
-            location_ChooseAnother_isOn,
+            type_state_isOn,
+            type_zipcode_isOn,
+            type_name_isOn,
         } = this.state
         const {
             onPressFilters,
             onPressType,
-            onPressLocation,
             onPressMoreOptions,
             onPressSortBy_Type,
             onPressSortBy_Name,
-            onPressType_Employer,
-            onPressType_University,
-            onPressLocation_ChooseAnother,
+            onPressType_State,
+            onPressType_Zipcode,
+            onPressType_Name,
             onPressReset,
             onPressDone,
+
         } = this
         return (
-            <SearchFilterSponsorsComponent
+            <ProviderScoreWidgetComponent
                 {...this.props}
                 slideInIsDisplayed={slideInIsDisplayed}
                 filters_isOn={filters_isOn}
                 type_isOn={type_isOn}
-                location_isOn={location_isOn}
                 moreOptions_isOn={moreOptions_isOn}
                 sortBy_Type_isOn={sortBy_Type_isOn}
                 sortBy_Name_isOn={sortBy_Name_isOn}
-                type_Employer_isOn={type_Employer_isOn}
-                type_University_isOn={type_University_isOn}
-                location_ChooseAnother_isOn={location_ChooseAnother_isOn}
+                type_state_isOn={type_state_isOn}
+                type_zipcode_isOn={type_zipcode_isOn}
+                type_name_isOn={type_name_isOn}
                 onPressFilters={onPressFilters}
                 onPressType={onPressType}
-                onPressLocation={onPressLocation}
                 onPressMoreOptions={onPressMoreOptions}
                 onPressSortBy_Type={onPressSortBy_Type}
                 onPressSortBy_Name={onPressSortBy_Name}
-                onPressType_Employer={onPressType_Employer}
-                onPressType_University={onPressType_University}
-                onPressLocation_ChooseAnother={onPressLocation_ChooseAnother}
+                onPressType_State={onPressType_State}
+                onPressType_Zipcode={onPressType_Zipcode}
+                onPressType_Name={onPressType_Name}
                 onPressReset={onPressReset}
                 onPressDone={onPressDone}
+
                 />
         )
     }
 }
 
-export default FormikWrapper(SearchFilterSponsors)
+export default FormikWrapper(ProviderScoreWidget)

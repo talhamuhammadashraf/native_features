@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Alert, Text } from 'react-native'
 import { storiesOf } from '@storybook/react-native';
-import SearchFilterSponsors from './SearchFilterSponsors.Composition'
+import ProviderScoreWidget from './ProviderScoreWidget.Composition'
 
 const CenteredView = ({ children }) => (
     <View style={style}>
@@ -19,12 +19,12 @@ const style = {
 
 
 export default storiesOf(
-    'SearchFilterSponsors Screen',
+    'ProviderScoreWidget Screen',
     module
 ).add(
     'standard',
     () => (
-        <SearchFilterSponsors
+        <ProviderScoreWidget
             />
     )
 )
