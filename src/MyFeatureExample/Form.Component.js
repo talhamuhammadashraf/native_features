@@ -1,67 +1,118 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Button } from 'react-native';
-import { FormikTextInput } from '../common/components/';
-import { FormikWrapper } from '../common/HOCs/FormikWrapper';
+import { View, TextInput, Text, StyleSheet, Platform } from 'react-native';
 
-// Two key helper props get "injected"
-// submitForm: Executes the callback function "onSubmit" with values
-// i.e. submitForm is equivalent to () => this.props.onSubmit(this.props.values)
-// isValid: returns True/False if the values pass validation
-
+// Needs to be fed Formik props
+// (i.e. have the FormikWrapper higher up in the tree
+// and pass in {...props})
 class FormComponent extends Component {
-  fieldRef = {}
+	fieldRef = {}
 
-  focusNextField = (key) => {
-    this.fieldRef[key].textInputRef.focus()
-  }
+	focusNextField = (key) => {
+		this.fieldRef[key].focus()
+	}
 
-  render() {
-    const { outerWrapper, fieldWrapper } = styles
-    return (
-      <View style={outerWrapper}>
-        <View style={fieldWrapper}>
-          <FormikTextInput
-            id="sampleinput"
-            name="sampleinput"
-            label="Sample Input"
-            placeholder="Placeholder for the Sample Input"
-            type="text"
-            value={this.props.values.sampleinput}
-            touched={this.props.touched["sampleinput"]}
-            error={this.props.errors["sampleinput"]}
-            onBlur={this.props.handleBlur("sampleinput")}
-            onChange={this.props.handleChange("sampleinput")}
-            style={FormikTextInputStyles}
-          />
-        </View>
-        <Button
-          title={'submit'}
-          disabled={!this.props.isValid}
-          onPress={this.props.submitForm}
-          />
-      </View>
-    );
-  }
+	render() {
+		const {
+			errorTextStyle,
+			textInputStyle,
+			outerWrapper,
+		} = styles
+		const {
+			errors,
+			handleBlur,
+			handleChange,
+			customErrorMessage = null,
+			submitForm,
+			touched,
+			values,
+		} = this.props
+
+		const {
+			focusNextField
+		} = this
+		return (
+			<View style={outerWrapper}>
+				{
+					customErrorMessage &&
+					<Text style={errorTextStyle}>
+						{customErrorMessage}
+					</Text>
+
+				}
+				<TextInput
+					id={"email"}
+					ref={input => (this.fieldRef[0] = input)}
+					name={"email"}
+					placeholder="Email"
+					value={values.email}
+					touched={touched["email"]}
+					error={errors["email"]}
+					onChangeText={value => {
+						let newValue = value.toLowerCase().trim()
+						handleChange("email")(newValue)
+					}}
+					onBlur={handleBlur("email")}
+					textContentType={"emailAddress"}
+					withRef
+					onSubmitEditing={() => {focusNextField(1)}}
+					returnKeyType="next"
+					autoCapitalize={"none"}
+					style={textInputStyle}
+					underlineColorAndroid="transparent"
+					/>
+				<TextInput
+					id={"password"}
+					ref={input => (this.fieldRef[1] = input)}
+					name={"password"}
+					textContentType={"password"}
+					placeholder="Password"
+					value={values.password}
+					touched={touched["password"]}
+					error={errors["password"]}
+					onChangeText={handleChange("password")}
+					onBlur={handleBlur("password")}
+					secureTextEntry
+					withRef
+					onSubmitEditing={submitForm}
+					returnKeyType={"go"}
+					style={textInputStyle}
+					/>
+			</View>
+		)
+	}
 }
 
 const styles = StyleSheet.create({
-  outerWrapper: {
-    paddingTop: 4,
-  },
-  fieldWrapper: {
-    paddingBottom: 4,
-  },
+	outerWrapper: {
+	},
+	errorTextStyle: {
+		fontSize: 20,
+		fontWeight: 'bold',
+		color: 'white',
+		marginVertical: 7,
+	},
+	textInputStyle: {
+		backgroundColor: 'white',
+    borderColor: 'white',
+    borderRadius: 3,
+		paddingHorizontal: 3,
+		borderRadius: 16,
+		marginVertical: 7,
+		paddingHorizontal: 6,
+		fontSize: 20,
+		...Platform.select({
+			ios: {
+				paddingVertical: 20,
+			},
+			android: {
+				paddingVertical: 3,
+			},
+			web: {
+				paddingVertical: 5,
+			},
+		})
+	},
 })
 
-const FormikTextInputStyles = StyleSheet.create({
-  outerWrapper: {
-  },
-  textInputStyle: {
-    backgroundColor: 'white',
-    borderRadius: 16,
-    paddingHorizontal: 6,
-  },
-})
 
-
-export default FormikWrapper(FormComponent);
+export default FormComponent

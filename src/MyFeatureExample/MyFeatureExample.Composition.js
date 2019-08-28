@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FormikWrapper } from '../common/HOCs/FormikWrapper';
 import MyFeatureExampleComponent from './MyFeatureExample.Component'
 
 // This is a placeholder for where we store
@@ -36,4 +37,4 @@ class MyFeatureExampleComposition extends Component {
     }
 }
 
-export default MyFeatureExampleComposition
+export default FormikWrapper(MyFeatureExampleComposition)

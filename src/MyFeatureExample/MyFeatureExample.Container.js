@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Alert } from 'react-native'
 import MyFeatureExampleComposition from './MyFeatureExample.Composition'
 
+// IGNORE THIS FILE FOR NOW
 // The Container is where our dev team will eventually
 // "plug-and-play" the business logic into the components
 // you create. FYI, our team uses Redux for this (but outside
