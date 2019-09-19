@@ -16,8 +16,8 @@ class ExampleFormContainer extends Component {
         initialValues={{
           medical_note: 'example initial value',
         }}
-        onPressBack = {()=>Alert.alert('onPressBack'))}
-        onPressCancel = {()=>Alert.alert('onPressCancel'))}
+        onPressBack = {()=>Alert.alert('onPressBack')}
+        onPressCancel = {()=>Alert.alert('onPressCancel')}
         onSubmit={onSubmit}
         />
     )
