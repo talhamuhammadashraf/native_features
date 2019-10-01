@@ -16,6 +16,7 @@ import {
 	spacing,
 	STATUS_BAR_HEIGHT
 } from '../configure/style'
+import { Content, Form, Item, Input, Label } from 'native-base';
 
 const {
 	width: SCREEN_WIDTH,
@@ -23,6 +24,14 @@ const {
 } = Dimensions.get('window')
 
 class ProvidersPhoneNumberCRUDFormComponent extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			phoneNumber: props.phoneNumber ?props.phoneNumber.phoneNumber : '',
+		  description: props.phoneNumber ?props.phoneNumber.description : '',
+		};
+	  }
+	
 	render() {
 		const {
 			submitForm,
@@ -51,20 +60,35 @@ class ProvidersPhoneNumberCRUDFormComponent extends Component {
 
 		return (
 			<View style={containerStyle}>
-				<ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper, ]}>
-					<Animated.View style={[
-						{
-							height: 1
-						},
-						{
-							transform: [
-								{
-									scaleY: keyboardHeight,
-								},
-							]
-						},
-						]}/>
-
+        <ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper]}>
+          <Content>
+            <Form>
+              <View>
+                <Item floatingLabel>
+                  <Label>Phone</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={name}
+                    onSubmitEditing={onSubmitEditing_textInput1}
+                    defaultValue={this.state.phoneNumber}
+                  />
+                </Item>
+                <Item floatingLabel>
+                  <Label>Description</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={name}
+                    onSubmitEditing={onSubmitEditing_textInput1}
+                    defaultValue={this.state.description}
+                  />
+                </Item>
+              </View>
+            </Form>
+          </Content>
 				</ScrollView>
 			</View>
 		)
@@ -74,13 +98,10 @@ const styles = StyleSheet.create({
 	containerStyle: {
 		height: SCREEN_HEIGHT,
 		flex: 1,
-		backgroundColor: colors.background.secondary,
+		backgroundColor: 'white',
 	},
 	outerWrapper: {
-		paddingTop: STATUS_BAR_HEIGHT,
-		marginTop: spacing.lg,
-		justifyContent: 'flex-start',
-		backgroundColor: colors.background.secondary,
+		backgroundColor: 'white',
 	},
 
 })

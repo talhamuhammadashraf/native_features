@@ -324,7 +324,6 @@ constructor(props){
             resizeMode='contain'
           />
         </TouchableOpacity>
-        {console.log(this.props.addresses_set[0])}
         {this.props.addresses_set.map((item, index) => (
           <ProvderAddressItem
             {...item}

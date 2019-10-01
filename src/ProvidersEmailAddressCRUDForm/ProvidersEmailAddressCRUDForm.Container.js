@@ -25,11 +25,12 @@ class ProvidersEmailAddressCRUDFormContainer extends Component {
   });
 
   render() {
+    console.log(this.props,"in email container")
     return(
       <ProvidersEmailAddressCRUDFormComposition
         validate={validateForm}
         initialValues={EMAILADDRESS_SAMPLE}
-        emailAddress={EMAILADDRESS_SAMPLE}
+        emailAddress={this.props.navigation.state.params}
         onPressSave = {()=>Alert.alert('onPressSave')}
         onPressCancel = {()=>Alert.alert('onPressCancel')}
         onSubmit={()=>Alert.alert('onSubmit')}

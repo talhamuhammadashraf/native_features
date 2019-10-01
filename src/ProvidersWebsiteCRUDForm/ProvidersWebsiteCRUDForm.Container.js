@@ -28,7 +28,7 @@ class ProvidersWebsiteCRUDFormContainer extends Component {
       <ProvidersWebsiteCRUDFormComposition
         validate={validateForm}
         initialValues={WEBSITE_SAMPLE}
-        website={WEBSITE_SAMPLE}
+        website={this.props.navigation.state.params}
         onPressSave = {()=>Alert.alert('onPressSave')}
         onPressCancel = {()=>Alert.alert('onPressCancel')}
         onSubmit={()=>Alert.alert('onSubmit')}

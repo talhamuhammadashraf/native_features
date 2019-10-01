@@ -37,6 +37,9 @@ class ProvidersAddressCRUDFormComponent extends Component {
       onPressDeleteEmailAddress,
       onPressDeletePhoneNumber,
       onPressDeleteWebsite,
+      onPressCreateEmailAddress,
+onPressCreatePhoneNumber,
+onPressCreateWebsite,
       submitForm,
       values,
       handleChange,
@@ -56,7 +59,6 @@ class ProvidersAddressCRUDFormComponent extends Component {
       keyboardHeight,
     } = this.props;
     const { containerStyle, outerWrapper } = styles;
-    console.log(this.props, 'props in address');
     const {
       addressLine,
       city,
@@ -172,7 +174,7 @@ class ProvidersAddressCRUDFormComponent extends Component {
             </Form>
           </Content>
           <Text style={styles.heading}>Email Addresses</Text>
-          <TouchableOpacity style={styles.addAnother}>
+          <TouchableOpacity style={styles.addAnother} onPress={onPressCreateEmailAddress}>
             <Text>Add another email here</Text>
             <Image
               source={require('../images/arrow.png')}
@@ -187,13 +189,13 @@ class ProvidersAddressCRUDFormComponent extends Component {
             <Email_Item
               key={index}
               {...item}
-              onPressEdit={item => onPressEditEmailAddress(item)}
-              onPressDelete={item => onPressDeleteEmailAddress(item)}
+              onPressEdit={() => onPressEditEmailAddress(item)}
+              onPressDelete={() => onPressDeleteEmailAddress(item)}
             />
           ))}
 
           <Text style={styles.heading}>Phone Numbers</Text>
-          <TouchableOpacity style={styles.addAnother}>
+          <TouchableOpacity style={styles.addAnother} onPress={onPressCreatePhoneNumber}>
             <Text>Add another phone number</Text>
             <Image
               source={require('../images/arrow.png')}
@@ -208,13 +210,13 @@ class ProvidersAddressCRUDFormComponent extends Component {
             <Phone_Number
               key={index}
               {...item}
-              onPressEdit={item => onPressEditPhoneNumber(item)}
-              onPressDelete={item => onPressDeletePhoneNumber(item)}
+              onPressEdit={() => onPressEditPhoneNumber(item)}
+              onPressDelete={() => onPressDeletePhoneNumber(item)}
             />
           ))}
 
           <Text style={styles.heading}>Websites</Text>
-          <TouchableOpacity style={styles.addAnother}>
+          <TouchableOpacity style={styles.addAnother} onPress={onPressCreateWebsite}>
             <Text>Add another Website...</Text>
             <Image
               source={require('../images/arrow.png')}
@@ -229,8 +231,8 @@ class ProvidersAddressCRUDFormComponent extends Component {
             <WebsiteItem
               key={index}
               {...item}
-              onPressEdit={item => onPressEditWebsite(item)}
-              onPressDelete={item => onPressDeleteWebsite(item)}
+              onPressEdit={() => onPressEditWebsite(item)}
+              onPressDelete={() => onPressDeleteWebsite(item)}
             />
           ))}
         </ScrollView>

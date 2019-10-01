@@ -28,7 +28,7 @@ class ProvidersPhoneNumberCRUDFormContainer extends Component {
       <ProvidersPhoneNumberCRUDFormComposition
         validate={validateForm}
         initialValues={PHONENUMBER_SAMPLE}
-        phoneNumber={PHONENUMBER_SAMPLE}
+        phoneNumber={this.props.navigation.state.params}
         onPressSave = {()=>Alert.alert('onPressSave')}
         onPressCancel = {()=>Alert.alert('onPressCancel')}
         onSubmit={()=>Alert.alert('onSubmit')}
