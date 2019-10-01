@@ -29,35 +29,68 @@ const Text = ({ children, style }) => (
 );
 export default ({
   onPressEdit,
-  onPressCancel,
-  id,
-  name,
-  coverageType,
-  networkType,
-  region,
-  description,
-  directory_url,
-  generic,
-  distributionType,
+  onPressDelete,
+  addressLine,
+  city,
   date_created,
   date_updated,
-  owner,
-}) => {
+  description,
+  id,
+  state,
+  zipcode}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.blueText}>{name}</Text>
+      <Text style={styles.blueText}>
+        {description} : {addressLine}
+      </Text>
       {/* <Text>{coverageType}</Text>
         <Text>{networkType}</Text> */}
-      <Text style={styles.blueText}>{region}</Text>
-      <Text>{description}</Text>
-      <TouchableOpacity onPress={() => openURL(directory_url)}>
-        <Text>{directory_url}</Text>
-      </TouchableOpacity>
-      <Text>{generic}</Text>
-      <Text>{distributionType}</Text>
+      <Text style={styles.blueText}>
+        {city} ,{state}
+      </Text>
+      <Text>zipCode : {zipcode}</Text>
       <Text style={{ fontStyle: 'italic' }}>Date Created : {date_created}</Text>
       <Text style={{ fontStyle: 'italic' }}>Date Updated : {date_updated}</Text>
       {/* <Text>{owner}</Text> */}
+      <View
+        style={{
+          width: '90%',
+          alignSelf: 'center',
+          flexDirection: 'row',
+          marginVertical: Metrics.scale(7.5),
+          justifyContent:'space-between'
+        }}
+      >
+        <TouchableOpacity
+        onPress={onPressEdit}
+          style={{
+            width: '47.5%',
+            paddingVertical: Metrics.spacing.sm,
+            borderRadius: Metrics.scale(5),
+            borderWidth:Metrics.scale(0.8),
+            borderColor: '#4D9DD2',
+            justifyContent:'center',
+            alignItems:'center'
+          }}
+        >
+          <Text>Edit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+        onPress={onPressDelete}
+          style={{
+            width: '47.5%',
+            justifyContent:'center',
+            alignItems:'center',
+            paddingVertical: Metrics.spacing.sm,
+            borderRadius: Metrics.scale(5),
+            borderColor: '#4D9DD2',
+            borderWidth:Metrics.scale(0.8),
+
+          }}
+        >
+          <Text>Delete</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
-import { connect } from 'react-redux'
 import ProvidersAddressCRUDFormComposition from './ProvidersAddressCRUDForm.Composition'
 import {validateForm} from './validate'
+import { Header } from '../components'
 
 
 let ADDRESS_SAMPLE = {
@@ -73,12 +73,22 @@ let WEBSITES_SAMPLE = [
 
 
 class ProvidersAddressCRUDFormContainer extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    header: (
+      <Header
+        Title='Edit Address'
+        onPressSave={() => Alert.alert('onPressSave')}
+        onPressCancel={() => navigation.goBack()}
+      />
+    ),
+  });
   render() {
+    console.log(this.props,"props")
     return(
       <ProvidersAddressCRUDFormComposition
         validate={validateForm}
         initialValues={ADDRESS_SAMPLE}
-        address={ADDRESS_SAMPLE}
+        address={this.props.navigation.state.params}
         onPressEditEmailAddress={(item)=> Alert.alert(item)}
         onPressDeleteEmailAddress={(item)=> Alert.alert(item)}
         onPressCreateEmailAddress={(item)=> Alert.alert(item)}

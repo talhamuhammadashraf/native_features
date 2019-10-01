@@ -15,19 +15,22 @@ class ProvidersAddressCRUDFormComposition extends Component {
         this.scrollViewRef = React.createRef()
     }
     onSubmitEditing_textInput1 = () => {
-        this.textInput2Ref.current.focus()
+        console.log(this.textInput2Ref,"check")
+        // this.textInput2Ref.current.focus()
     }
 
     onSubmitEditing_textInput2 = () => {
-        this.textInput3Ref.current.focus()
+        console.log(this.textInput2Ref,"check")
+
+        // this.textInput3Ref.current.focus()
     }
 
     onSubmitEditing_textInput3 = () => {
-        this.textInput4Ref.current.focus()
+        // this.textInput4Ref.current.focus()
     }
 
     onSubmitEditing_textInput4 = () => {
-        this.textInput5Ref.current.focus()
+        // this.textInput5Ref.current.focus()
     }
 
     onSubmitEditing_textInput5 = () => {

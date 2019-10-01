@@ -1,7 +1,8 @@
 import {createStackNavigator} from 'react-navigation-stack'
-import {Provider} from './src'
+import {Provider,ProviderAddress} from './src'
 export default createStackNavigator({
-    editProfile:Provider
+    editProfile:Provider,
+    editAddress:ProviderAddress
 },{
     // headerMode:'screen'
 })
