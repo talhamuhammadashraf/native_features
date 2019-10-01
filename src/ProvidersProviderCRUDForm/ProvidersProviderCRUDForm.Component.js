@@ -99,17 +99,49 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
-import { Header } from '../../components';
+import { ProvderNetworkItem } from '../components';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 import { Content, Form, Item, Input, Label } from 'native-base';
 export default class extends Component {
-    state={
-        uri:"https://img.icons8.com/carbon-copy/2x/user.png"
-    }
-  static navigationOptions = ({ navigation }) => ({
-    header: <Header Title='Edit Provider' />,
-  });
+constructor(props){
+  super(props)
+  let {
+    coverageType,
+    existence,
+    firstName,
+    id,
+    lastName,
+    name,
+    pic,
+    providerSpecialty,
+    providerSubSpecialty,
+    providerTitle,
+    onSubmitEditing_textInput1,
+    onSubmitEditing_textInput2,
+    onSubmitEditing_textInput3,
+    onSubmitEditing_textInput4,
+    onSubmitEditing_textInput5,
+    onSubmitEditing_textInput6,
+  } = props.provider
+      this.state={
+        coverageType,
+        existence,
+        firstName,
+        id,
+        lastName,
+        name,
+        pic,
+        providerSpecialty,
+        providerSubSpecialty,
+        providerTitle,
+        onSubmitEditing_textInput1,
+        onSubmitEditing_textInput2,
+        onSubmitEditing_textInput3,
+        onSubmitEditing_textInput4,
+        onSubmitEditing_textInput5,
+        onSubmitEditing_textInput6,    
+    }}
   componentDidMount() {
     this.getPermissionAsync();
   }
@@ -123,7 +155,7 @@ export default class extends Component {
     console.log(result);
 
     if (!result.cancelled) {
-      this.setState({ uri: result.uri });
+      this.setState({ pic: result.uri });
     }
   };
   getPermissionAsync = async () => {
@@ -135,34 +167,138 @@ export default class extends Component {
     }
   };
   render() {
-    console.log(this.state, 'state');
+    console.log(this.state, 'state',this.props);
+    const {
+      coverageType,
+      existence,
+      firstName,
+      id,
+      lastName,
+      name,
+      pic,
+      providerSpecialty,
+      providerSubSpecialty,
+      providerTitle,
+      onSubmitEditing_textInput1,
+      onSubmitEditing_textInput2,
+      onSubmitEditing_textInput3,
+      onSubmitEditing_textInput4,
+      onSubmitEditing_textInput5,
+      onSubmitEditing_textInput6,
+      textInput1Ref,
+      textInput2Ref,
+      textInput3Ref,
+      textInput4Ref,
+      textInput5Ref,
+      scrollViewRef,
+
+    } = this.props.provider;
     return (
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.contentContainerStyle}
         showsVerticalScrollIndicator={false}
+        ref={scrollViewRef}
       >
-        <TouchableOpacity
-          style={styles.imageContainer}
-          onPress={this._pickImage}
-        >
-          <Image source={{uri:this.state.uri}} style={{
-              height:100,
-              width:100,
-              borderRadius:50
-          }}/>
-        </TouchableOpacity>
         <Content>
-        <Form>
+          <TouchableOpacity
+            style={styles.imageContainer}
+            onPress={this._pickImage}
+          >
+            <Image
+              source={{ uri: this.state.pic }}
+              style={{
+                height: 100,
+                width: 100,
+                borderRadius: 50,
+              }}
+            />
+          </TouchableOpacity>
+          <Form>
+            {existence === 'H' ? (
+              <View>
+                <Item floatingLabel>
+                  <Label>First Name</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={firstName}
+                    onSubmitEditing={onSubmitEditing_textInput1}
+                  />
+                </Item>
+                <Item floatingLabel>
+                  <Label>Last Name</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={lastName}
+                    onSubmitEditing={onSubmitEditing_textInput2}
+                  />
+                </Item>
+              </View>
+            ) : existence === 'F' ? (
+              <View>
+                <Item floatingLabel>
+                  <Label>Name</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={name}
+                    onSubmitEditing={onSubmitEditing_textInput1}
+                  />
+                </Item>
+              </View>
+            ) : (
+              <View />
+            )}
             <Item floatingLabel>
-              <Label>Username</Label>
+              <Label>Title</Label>
               <Input
-            //    onChangeText={}
-
-               />
+                defaultValue={providerTitle}
+                onSubmitEditing={
+                  existence === 'H'
+                    ? onSubmitEditing_textInput3
+                    : onSubmitEditing_textInput4
+                }
+                returnKeyType='next'
+                returnKeyLabel='Next'
+                ref={existence === 'H' ? textInput3Ref : textInput2Ref}
+              />
             </Item>
-        </Form>
+            <Item floatingLabel>
+              <Label>Provider Specialty</Label>
+              <Input
+                defaultValue={providerSpecialty}
+                onSubmitEditing={
+                  existence === 'H'
+                    ? onSubmitEditing_textInput4
+                    : onSubmitEditing_textInput5
+                }
+                returnKeyType='next'
+                returnKeyLabel='Next'
+                ref={existence === 'H' ? textInput4Ref : textInput3Ref}
+              />
+            </Item>
+            <Item floatingLabel>
+              <Label>Provider Subspecialty</Label>
+              <Input
+                defaultValue={providerSubSpecialty}
+                onSubmitEditing={
+                  existence === 'H'
+                    ? onSubmitEditing_textInput5
+                    : onSubmitEditing_textInput6
+                }
+                returnKeyType='next'
+                returnKeyLabel='Next'
+                ref={existence === 'H' ? textInput5Ref : textInput4Ref}
+              />
+            </Item>
+          </Form>
         </Content>
+        <ProvderNetworkItem {...this.props.providernetworks_set}/>
       </ScrollView>
     );
   }

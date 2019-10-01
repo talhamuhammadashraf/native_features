@@ -1,5 +1,3 @@
-import * as validate from "common/forms/validate/";
-
 
 // Helper ---------------------------------------------------------------------
 const removeEmptyErrors = errors => {
