@@ -16,4 +16,6 @@ import StoryBookUI from './storybook'
 //   },
 // });
 
-export default StoryBookUI
+// export default StoryBookUI
+
+export  default ()=><Text>talha</Text>
