@@ -89,14 +89,14 @@ class ProvidersAddressCRUDFormContainer extends Component {
         validate={validateForm}
         initialValues={ADDRESS_SAMPLE}
         address={this.props.navigation.state.params}
-        onPressEditEmailAddress={(item)=> Alert.alert(item)}
-        onPressDeleteEmailAddress={(item)=> Alert.alert(item)}
+        onPressEditEmailAddress={(item)=> this.props.navigation.navigate('editEmail',item)}
+        onPressDeleteEmailAddress={(item)=> Alert.alert("Delete this item")}
         onPressCreateEmailAddress={(item)=> Alert.alert(item)}
-        onPressEditPhoneNumber={(item)=> Alert.alert(item)}
-        onPressDeletePhoneNumber={(item)=> Alert.alert(item)}
+        onPressEditPhoneNumber={(item)=> this.props.navigation.navigate('editPhone',item)}
+        onPressDeletePhoneNumber={(item)=> Alert.alert("Delete this item")}
         onPressCreatePhoneNumber={(item)=> Alert.alert(item)}
-        onPressEditWebsite={(item)=> Alert.alert(item)}
-        onPressDeleteWebsite={(item)=> Alert.alert(item)}
+        onPressEditWebsite={(item)=> this.props.navigation.navigate('editWebsite',item)}
+        onPressDeleteWebsite={(item)=> Alert.alert("Delete this item")}
         onPressCreateWebsite={(item)=> Alert.alert(item)}
         emailaddresses_set={EMAILADDRESSES_SAMPLE}
         phonenumbers_set={PHONENUMBERS_SAMPLE}

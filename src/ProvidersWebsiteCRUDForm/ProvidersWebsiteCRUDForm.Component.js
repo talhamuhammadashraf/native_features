@@ -52,8 +52,6 @@ class ProvidersWebsiteCRUDFormComponent extends Component {
 		return (
 			<View style={containerStyle}>
 				<ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper, ]}>
-					// Content Goes Here!
-					// The animated view helps handle the software keyboard blocking content
 					<Animated.View style={[
 						{
 							height: 1
