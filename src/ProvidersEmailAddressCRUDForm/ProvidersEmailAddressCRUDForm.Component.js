@@ -45,6 +45,7 @@ class ProvidersEmailAddressCRUDFormComponent extends Component {
     } = this.props;
     const { containerStyle, outerWrapper } = styles;
     console.log(this.props, 'in email');
+    const {email,description} = this.state
     return (
       <View style={containerStyle}>
         <ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper]}>
@@ -57,7 +58,7 @@ class ProvidersEmailAddressCRUDFormComponent extends Component {
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={email}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={this.state.email}
                   />
@@ -68,7 +69,7 @@ class ProvidersEmailAddressCRUDFormComponent extends Component {
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={description}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={this.state.description}
                   />

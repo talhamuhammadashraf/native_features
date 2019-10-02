@@ -57,7 +57,7 @@ class ProvidersPhoneNumberCRUDFormComponent extends Component {
 			outerWrapper,
 		} = styles
 
-
+const {phoneNumber,description} = this.state
 		return (
 			<View style={containerStyle}>
         <ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper]}>
@@ -70,7 +70,7 @@ class ProvidersPhoneNumberCRUDFormComponent extends Component {
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={phoneNumber}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={this.state.phoneNumber}
                   />
@@ -81,7 +81,7 @@ class ProvidersPhoneNumberCRUDFormComponent extends Component {
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={description}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={this.state.description}
                   />

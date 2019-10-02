@@ -84,7 +84,7 @@ onPressCreateWebsite,
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={addressLine}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={addressLine}
                   />
@@ -97,7 +97,7 @@ onPressCreateWebsite,
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput2Ref}
-                    defaultValue={name}
+                    defaultValue={city}
                     onSubmitEditing={onSubmitEditing_textInput2}
                     defaultValue={city}
                   />
@@ -111,7 +111,7 @@ onPressCreateWebsite,
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput3Ref}
-                    defaultValue={name}
+                    defaultValue={state}
                     onSubmitEditing={onSubmitEditing_textInput3}
                     defaultValue={state}
                   />
@@ -124,7 +124,7 @@ onPressCreateWebsite,
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput4Ref}
-                    defaultValue={name}
+                    defaultValue={zipcode}
                     onSubmitEditing={onSubmitEditing_textInput4}
                     defaultValue={zipcode}
                     keyboardType='numeric'

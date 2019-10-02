@@ -57,7 +57,7 @@ class ProvidersWebsiteCRUDFormComponent extends Component {
 			outerWrapper,
 		} = styles
 
-
+const {website_url,description} = this.state
 		return (
 			<View style={containerStyle}>
         <ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper]}>
@@ -70,7 +70,7 @@ class ProvidersWebsiteCRUDFormComponent extends Component {
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={website_url}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={this.state.website_url}
                   />
@@ -81,7 +81,7 @@ class ProvidersWebsiteCRUDFormComponent extends Component {
                     returnKeyType='next'
                     returnKeyLabel='Next'
                     ref={textInput1Ref}
-                    defaultValue={name}
+                    defaultValue={description}
                     onSubmitEditing={onSubmitEditing_textInput1}
                     defaultValue={this.state.description}
                   />
