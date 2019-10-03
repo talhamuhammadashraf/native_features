@@ -5,6 +5,7 @@ import {
   Text as TextRN,
   Linking,
   StyleSheet,
+  Alert
 } from 'react-native';
 import * as Metrics from '../configure/style';
 const openURL = googleUrl => {
@@ -40,40 +41,31 @@ export default ({
         {description} : {phoneNumber}
       </Text>
       <View
-        style={{
-          width: '90%',
-          alignSelf: 'center',
-          flexDirection: 'row',
-          marginVertical: Metrics.scale(7.5),
-          justifyContent:'space-between'
-        }}
+        style={styles.ButtonContainer}
       >
         <TouchableOpacity
         onPress={onPressEdit}
-          style={{
-            width: '47.5%',
-            paddingVertical: Metrics.spacing.sm,
-            borderRadius: Metrics.scale(5),
-            borderWidth:Metrics.scale(0.8),
-            borderColor: '#4D9DD2',
-            justifyContent:'center',
-            alignItems:'center'
-          }}
+          style={styles.button}
         >
           <Text>Edit</Text>
         </TouchableOpacity>
         <TouchableOpacity
-        onPress={onPressDelete}
-          style={{
-            width: '47.5%',
-            justifyContent:'center',
-            alignItems:'center',
-            paddingVertical: Metrics.spacing.sm,
-            borderRadius: Metrics.scale(5),
-            borderColor: '#4D9DD2',
-            borderWidth:Metrics.scale(0.8),
-
-          }}
+        onPress={
+          ()=>{Alert.alert(
+            'Are You Sure',
+            'You wan to delete this item',
+            [
+              {text: 'Yes', onPress:onPressDelete},
+              {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+              },
+            ],
+            {cancelable: true},
+          )}
+        }
+          style={styles.button}
         >
           <Text>Delete</Text>
         </TouchableOpacity>
@@ -83,20 +75,36 @@ export default ({
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    elevation: 15,
+    borderRadius: 12,
+    alignSelf: "center",
+    paddingHorizontal: Metrics.spacing.md,
+    paddingVertical: Metrics.spacing.md,
+    borderColor: "lightgrey",
+    borderWidth: Metrics.scale(0.7),
+    marginVertical: Metrics.spacing.md
+  },
+  ButtonContainer: {
+    width: "90%",
+    alignSelf: "center",
+    flexDirection: "row",
+    marginVertical: Metrics.scale(7.5),
+    justifyContent: "space-between"
+  }
+,
   blueText: {
     color: '#1350B0',
     fontSize: Metrics.scale(17),
     fontStyle: 'italic',
   },
-  container: {
-    backgroundColor: 'white',
-    elevation: 15,
-    borderRadius: 12,
-    alignSelf: 'center',
-    paddingHorizontal: Metrics.spacing.md,
-    paddingVertical: Metrics.spacing.md,
-    borderColor: 'lightgrey',
-    borderWidth: Metrics.scale(0.7),
-    marginVertical: Metrics.spacing.md,
-  },
-});
+  button: {
+    width: "47.5%",
+    paddingVertical: Metrics.spacing.sm,
+    borderRadius: Metrics.scale(5),
+    borderWidth: Metrics.scale(0.8),
+    borderColor: "#4D9DD2",
+    justifyContent: "center",
+    alignItems: "center"
+  }});

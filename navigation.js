@@ -15,6 +15,6 @@ export default createStackNavigator(
     editPhone: ProviderPhone,
   },
   {
-    // headerMode:'screen'
+    headerMode:'screen'
   }
 );

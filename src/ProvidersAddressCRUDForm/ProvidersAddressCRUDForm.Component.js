@@ -185,14 +185,16 @@ onPressCreateWebsite,
               resizeMode='contain'
             />
           </TouchableOpacity>
-          {this.props.emailaddresses_set.map((item, index) => (
+          {this.props.emailaddresses_set.length ?this.props.emailaddresses_set.map((item, index) => (
             <Email_Item
               key={index}
               {...item}
               onPressEdit={() => onPressEditEmailAddress(item)}
               onPressDelete={() => onPressDeleteEmailAddress(item)}
             />
-          ))}
+          ))
+          :<Text>No Email Addresses yer</Text>
+        }
 
           <Text style={styles.heading}>Phone Numbers</Text>
           <TouchableOpacity style={styles.addAnother} onPress={onPressCreatePhoneNumber}>
@@ -206,14 +208,16 @@ onPressCreateWebsite,
               resizeMode='contain'
             />
           </TouchableOpacity>
-          {this.props.phonenumbers_set.map((item, index) => (
+          {this.props.phonenumbers_set.length? this.props.phonenumbers_set.map((item, index) => (
             <Phone_Number
               key={index}
               {...item}
               onPressEdit={() => onPressEditPhoneNumber(item)}
               onPressDelete={() => onPressDeletePhoneNumber(item)}
             />
-          ))}
+          )):
+        <Text>No Phone Numbers yet</Text>
+        }
 
           <Text style={styles.heading}>Websites</Text>
           <TouchableOpacity style={styles.addAnother} onPress={onPressCreateWebsite}>
@@ -227,14 +231,16 @@ onPressCreateWebsite,
               resizeMode='contain'
             />
           </TouchableOpacity>
-          {this.props.websites_set.map((item, index) => (
+          {this.props.websites_set.length ? this.props.websites_set.map((item, index) => (
             <WebsiteItem
               key={index}
               {...item}
               onPressEdit={() => onPressEditWebsite(item)}
               onPressDelete={() => onPressDeleteWebsite(item)}
             />
-          ))}
+          )):
+          <Text>No website URLs yet</Text>
+          }
         </ScrollView>
       </View>
     );

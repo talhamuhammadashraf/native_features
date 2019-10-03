@@ -309,9 +309,11 @@ constructor(props){
             resizeMode='contain'
           />
         </TouchableOpacity>
-        {this.props.providernetworks_set.map((item, index) => (
+        {this.props.providernetworks_set.length? this.props.providernetworks_set.map((item, index) => (
           <ProvderNetworkItem {...item} key={index} />
-        ))}
+        )):
+        <Text>No Addresses yet</Text>        
+        }
         <Text style={styles.heading}>Provider Addresses</Text>
         <TouchableOpacity style={styles.addAnother} onPress={()=>this.props.navigation.navigate('editAddress')}>
           <Text>Add another provider address</Text>
@@ -324,14 +326,16 @@ constructor(props){
             resizeMode='contain'
           />
         </TouchableOpacity>
-        {this.props.addresses_set.map((item, index) => (
+        {this.props.addresses_set.length ? this.props.addresses_set.map((item, index) => (
           <ProvderAddressItem
             {...item}
             key={index}
             onPressEdit={()=>this.props.onPressEditProviderNetwork(item)}
             onPressDelete={()=>this.props.onPressDeleteProviderNetwork(item)}
           />
-        ))}
+        )):
+        <Text>No Addresses yet</Text>
+        }
       </ScrollView>
     );
   }
