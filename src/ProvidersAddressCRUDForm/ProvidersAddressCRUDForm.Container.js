@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Alert } from 'react-native'
-import { connect } from 'react-redux'
 import ProvidersAddressCRUDFormComposition from './ProvidersAddressCRUDForm.Composition'
 import {validateForm} from './validate'
+import { Header } from '../components'
 
 
 let ADDRESS_SAMPLE = {
@@ -73,21 +73,31 @@ let WEBSITES_SAMPLE = [
 
 
 class ProvidersAddressCRUDFormContainer extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    header: (
+      <Header
+        Title='Edit Address'
+        onPressSave={() => Alert.alert('onPressSave')}
+        onPressCancel={() => navigation.goBack()}
+      />
+    ),
+  });
   render() {
+    console.log(this.props,"props")
     return(
       <ProvidersAddressCRUDFormComposition
         validate={validateForm}
         initialValues={ADDRESS_SAMPLE}
-        address={ADDRESS_SAMPLE}
-        onPressEditEmailAddress={(item)=> Alert.alert(item)}
-        onPressDeleteEmailAddress={(item)=> Alert.alert(item)}
-        onPressCreateEmailAddress={(item)=> Alert.alert(item)}
-        onPressEditPhoneNumber={(item)=> Alert.alert(item)}
-        onPressDeletePhoneNumber={(item)=> Alert.alert(item)}
-        onPressCreatePhoneNumber={(item)=> Alert.alert(item)}
-        onPressEditWebsite={(item)=> Alert.alert(item)}
-        onPressDeleteWebsite={(item)=> Alert.alert(item)}
-        onPressCreateWebsite={(item)=> Alert.alert(item)}
+        address={this.props.navigation.state.params}
+        onPressEditEmailAddress={(item)=> this.props.navigation.navigate('editEmail',item)}
+        onPressDeleteEmailAddress={(item)=> Alert.alert("Delete this item")}
+        onPressCreateEmailAddress={()=> this.props.navigation.navigate('editEmail')}
+        onPressEditPhoneNumber={(item)=> this.props.navigation.navigate('editPhone',item)}
+        onPressDeletePhoneNumber={(item)=> Alert.alert("Delete this item")}
+        onPressCreatePhoneNumber={()=> this.props.navigation.navigate('editPhone',)}
+        onPressEditWebsite={(item)=> this.props.navigation.navigate('editWebsite',item)}
+        onPressDeleteWebsite={(item)=> Alert.alert("Delete this item")}
+        onPressCreateWebsite={()=> this.props.navigation.navigate('editWebsite')}
         emailaddresses_set={EMAILADDRESSES_SAMPLE}
         phonenumbers_set={PHONENUMBERS_SAMPLE}
         websites_set={WEBSITES_SAMPLE}

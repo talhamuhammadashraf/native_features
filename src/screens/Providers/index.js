@@ -29,7 +29,6 @@ export default class extends Component {
       aspect: [4, 3],
     });
 
-    console.log(result);
 
     if (!result.cancelled) {
       this.setState({ uri: result.uri });
@@ -44,7 +43,6 @@ export default class extends Component {
     }
   };
   render() {
-    console.log(this.state, 'state');
     return (
       <ScrollView
         style={styles.scroll}

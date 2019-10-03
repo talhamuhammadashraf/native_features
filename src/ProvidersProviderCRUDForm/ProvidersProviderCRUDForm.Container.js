@@ -104,11 +104,12 @@ class ProvidersProviderCRUDFormContainer extends Component {
         onPressEditAddress={item => Alert.alert(item)}
         onPressDeleteAddress={item => Alert.alert(item)}
         onPressCreateProviderNetwork={item => Alert.alert(item)}
-        onPressEditProviderNetwork={item => Alert.alert(item)}
-        onPressDeleteProviderNetwork={item => Alert.alert(item)}
+        onPressEditProviderNetwork={item => this.props.navigation.navigate('editAddress',item)}
+        onPressDeleteProviderNetwork={item => Alert.alert('delete this item')}
         onPressSave={() => Alert.alert('onPressSave')}
         onPressCancel={() => Alert.alert('onPressCancel')}
         onSubmit={() => Alert.alert('onSubmit')}
+        navigation={this.props.navigation}
       />
     );
   }

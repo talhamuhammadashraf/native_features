@@ -21,8 +21,17 @@ const {
 	width: SCREEN_WIDTH,
 	height: SCREEN_HEIGHT,
 } = Dimensions.get('window')
+import { Content, Form, Item, Input, Label } from 'native-base';
 
 class ProvidersWebsiteCRUDFormComponent extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			website_url: props.website ?props.website.website_url : '',
+		  description: props.website ?props.website.description : '',
+		};
+	  }
+
 	render() {
 		const {
 			submitForm,
@@ -48,25 +57,38 @@ class ProvidersWebsiteCRUDFormComponent extends Component {
 			outerWrapper,
 		} = styles
 
-
+const {website_url,description} = this.state
 		return (
 			<View style={containerStyle}>
-				<ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper, ]}>
-					// Content Goes Here!
-					// The animated view helps handle the software keyboard blocking content
-					<Animated.View style={[
-						{
-							height: 1
-						},
-						{
-							transform: [
-								{
-									scaleY: keyboardHeight,
-								},
-							]
-						},
-						]}/>
-
+        <ScrollView ref={scrollViewRef} contentContainerStyle={[outerWrapper]}>
+          <Content>
+            <Form>
+              <View>
+                <Item floatingLabel>
+                  <Label>URL</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={website_url}
+                    onSubmitEditing={onSubmitEditing_textInput1}
+                    defaultValue={this.state.website_url}
+                  />
+                </Item>
+                <Item floatingLabel>
+                  <Label>Description</Label>
+                  <Input
+                    returnKeyType='next'
+                    returnKeyLabel='Next'
+                    ref={textInput1Ref}
+                    defaultValue={description}
+                    onSubmitEditing={onSubmitEditing_textInput1}
+                    defaultValue={this.state.description}
+                  />
+                </Item>
+              </View>
+            </Form>
+          </Content>
 				</ScrollView>
 			</View>
 		)
@@ -76,13 +98,10 @@ const styles = StyleSheet.create({
 	containerStyle: {
 		height: SCREEN_HEIGHT,
 		flex: 1,
-		backgroundColor: colors.background.secondary,
+		backgroundColor: 'white',
 	},
 	outerWrapper: {
-		paddingTop: STATUS_BAR_HEIGHT,
-		marginTop: spacing.lg,
-		justifyContent: 'flex-start',
-		backgroundColor: colors.background.secondary,
+		backgroundColor: 'white',
 	},
 
 })

@@ -99,9 +99,10 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
-import { ProvderNetworkItem } from '../components';
+import { ProvderNetworkItem, ProvderAddressItem } from '../components';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
+import * as Metrics from '../configure/style'
 import { Content, Form, Item, Input, Label } from 'native-base';
 export default class extends Component {
 constructor(props){
@@ -152,7 +153,6 @@ constructor(props){
       aspect: [4, 3],
     });
 
-    console.log(result);
 
     if (!result.cancelled) {
       this.setState({ pic: result.uri });
@@ -167,7 +167,6 @@ constructor(props){
     }
   };
   render() {
-    console.log(this.state, 'state',this.props);
     const {
       coverageType,
       existence,
@@ -298,13 +297,65 @@ constructor(props){
             </Item>
           </Form>
         </Content>
-        <ProvderNetworkItem {...this.props.providernetworks_set}/>
+        <Text style={styles.heading}>Provider Networks</Text>
+        <TouchableOpacity style={styles.addAnother} >
+          <Text>Add another provider networks</Text>
+          <Image
+            source={require('../images/arrow.png')}
+            style={{
+              width: 20,
+              height: 20,
+            }}
+            resizeMode='contain'
+          />
+        </TouchableOpacity>
+        {this.props.providernetworks_set.map((item, index) => (
+          <ProvderNetworkItem {...item} key={index} />
+        ))}
+        <Text style={styles.heading}>Provider Addresses</Text>
+        <TouchableOpacity style={styles.addAnother} onPress={()=>this.props.navigation.navigate('editAddress')}>
+          <Text>Add another provider address</Text>
+          <Image
+            source={require('../images/arrow.png')}
+            style={{
+              width: 20,
+              height: 20,
+            }}
+            resizeMode='contain'
+          />
+        </TouchableOpacity>
+        {this.props.addresses_set.map((item, index) => (
+          <ProvderAddressItem
+            {...item}
+            key={index}
+            onPressEdit={()=>this.props.onPressEditProviderNetwork(item)}
+            onPressDelete={()=>this.props.onPressDeleteProviderNetwork(item)}
+          />
+        ))}
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  heading:{
+    color: '#1350B0',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginHorizontal: 12,
+    marginVertical: 14,
+  },
+  addAnother:{
+    backgroundColor: 'white',
+    padding: Metrics.scale(15),
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderWidth:Metrics.scale(0.7),
+    borderRadius:Metrics.scale(5),
+    borderColor:'lightgrey',
+    marginHorizontal:Metrics.scale(8)
+  },
     imageContainer:{
         height: 100,
         borderWidth:2.5,
