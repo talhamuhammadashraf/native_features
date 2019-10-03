@@ -7,7 +7,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "storybook": "start-storybook -p 7007 -h 0.0.0.0",
-    "prestorybook": "rnstl"
+    "prestorybook": "rnstl",
+    "watch-need-help": "echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances && echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events && echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches && watchman shutdown-server"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.3",
